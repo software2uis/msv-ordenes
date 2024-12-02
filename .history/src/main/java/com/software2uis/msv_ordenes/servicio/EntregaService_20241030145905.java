@@ -26,7 +26,7 @@ public class EntregaService {
             .get()
             .uri("https://api-de-distancia.com/distance?address=" + direccion)
             .retrieve()
-            .bodyToMono(Double.class) // Asegurar que el tipo coincida con lo que devuelve la API
+            .bodyToMono(Double.class) // Asegúrate de que el tipo coincida con lo que devuelve la API
             .block();
     }
 
