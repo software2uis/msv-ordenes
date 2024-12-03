@@ -21,18 +21,6 @@ public class Entrega {
     private Pedido pedido;
 
     private LocalDate fechaEstimada;
-    private String estadoEntrega; // Estado de la entrega, por ejemplo, "EN PROCESO", "RETRASADA", etc.
-
-    // Constructor vacío para JPA
-    public Entrega() {
-    }
-
-    // Constructor con parámetros
-    public Entrega(Pedido pedido, LocalDate fechaEstimada, String estadoEntrega) {
-        this.pedido = pedido;
-        this.fechaEstimada = fechaEstimada;
-        this.estadoEntrega = estadoEntrega;
-    }
 
     // Getters y Setters
     public Long getId() {
@@ -57,23 +45,5 @@ public class Entrega {
 
     public void setFechaEstimada(LocalDate fechaEstimada) {
         this.fechaEstimada = fechaEstimada;
-    }
-
-    public String getEstadoEntrega() {
-        return estadoEntrega;
-    }
-
-    public void setEstadoEntrega(String estadoEntrega) {
-        this.estadoEntrega = estadoEntrega;
-    }
-
-    @Override
-    public String toString() {
-        return "Entrega{" +
-                "id=" + id +
-                ", pedido=" + pedido +
-                ", fechaEstimada=" + fechaEstimada +
-                ", estadoEntrega='" + estadoEntrega + '\'' +
-                '}';
     }
 }

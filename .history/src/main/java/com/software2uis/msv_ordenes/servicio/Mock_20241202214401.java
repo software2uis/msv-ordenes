@@ -1,0 +1,5 @@
+package com.software2uis.msv_ordenes.servicio;
+
+public @interface Mock {
+
+}
