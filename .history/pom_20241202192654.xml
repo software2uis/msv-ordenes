@@ -97,20 +97,7 @@
     		<artifactId>spring-boot-starter-test</artifactId>
     		<scope>test</scope>
 		</dependency>
-		<dependency>
-    		<groupId>org.springframework.boot</groupId>
-    		<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>kernel</artifactId>
-			<version>7.2.0</version> 
-		</dependency>
-		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>layout</artifactId>
-			<version>7.2.0</version> 
-		</dependency>
+
 	</dependencies>
 
 	<build>
