@@ -1,53 +1,41 @@
 package com.software2uis.msv_ordenes.modelo;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import java.math.BigDecimal;
 import java.time.LocalDate;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import java.util.List;
 
 @Entity
+@Table(name = "pedidos")
+@Data
 public class Pedido {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String direccionEnvio;
     private LocalDate fechaCreacion;
-    private String estado;
 
-    // Getters y Setters
+    private String estado; // Por ejemplo: "PENDIENTE", "CONFIRMADO", "ENVIADO"
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ItemPedido> items;
 
-    public String getDireccionEnvio() {
-        return direccionEnvio;
-    }
+    private BigDecimal total;
 
-    public void setDireccionEnvio(String direccionEnvio) {
-        this.direccionEnvio = direccionEnvio;
-    }
+    // Datos de envío
+    private String direccionEnvio;
+    private String ciudadEnvio;
+    private String codigoPostalEnvio;
+    private String instrucciones;
 
-    public LocalDate getFechaCreacion() {
-        return fechaCreacion;
-    }
+    private BigDecimal costoEnvio;
+    private String tiempoEstimadoEntrega;
 
-    public void setFechaCreacion(LocalDate fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+    // No es necesario agregar getters y setters manualmente debido a @Data
 }
