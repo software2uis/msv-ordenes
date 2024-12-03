@@ -26,16 +26,16 @@ public class EntregaService {
             .get()
             .uri("https://api-de-distancia.com/distance?address=" + direccion)
             .retrieve()
-            .bodyToMono(Double.class) // Asegurar que el tipo coincida con lo que devuelve la API
+            .bodyToMono(Double.class) // Asegúrate de que el tipo coincida con lo que devuelve la API
             .block();
     }
 
     public LocalDate calculateEstimatedDelivery(Pedido pedido) {
-        // Se usa el método getDistanceFromAddress para obtener la distancia
+        // Usamos el método getDistanceFromAddress para obtener la distancia
         double distancia = getDistanceFromAddress(pedido.getDireccionEnvio());
 
         // Cálculo de la fecha estimada de entrega basada en la distancia
-        int diasEstimados = (int) (distancia / 100) + 2; // Datos ejemplo: cada 100 km agrega un día + 2 días de procesamiento
+        int diasEstimados = (int) (distancia / 100) + 2; // Ejemplo: cada 100 km agrega un día + 2 días de procesamiento
         LocalDate estimatedDate = LocalDate.now().plus(diasEstimados, ChronoUnit.DAYS);
 
         // Guardar la estimación de entrega en la base de datos
