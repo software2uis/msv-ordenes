@@ -13,7 +13,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.software2uis.msv_ordenes.modelo.Pedido;
-import com.software2uis.msv_ordenes.repositorio.EntregaRepositorio;
 
 public class EntregaServiceTest {
 

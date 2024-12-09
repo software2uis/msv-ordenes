@@ -217,7 +217,7 @@ spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
 1. **Navegar al Directorio del Proyecto**
 
    ```cmd
-   cd ruta\al\directorio\msv-ordenes
+   cd ruta\al\directorio\msv-orden
    ```
 
 2. **Ejecutar la Aplicación**

@@ -12,7 +12,6 @@ import com.itextpdf.io.source.ByteArrayOutputStream;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
-import com.software2uis.msv_ordenes.modelo.Factura;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;

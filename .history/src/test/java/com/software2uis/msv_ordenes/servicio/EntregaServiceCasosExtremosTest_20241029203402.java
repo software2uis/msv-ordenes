@@ -11,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.software2uis.msv_ordenes.modelo.Pedido;
-import com.software2uis.msv_ordenes.repositorio.EntregaRepositorio;
 
 public class EntregaServiceCasosExtremosTest {
 

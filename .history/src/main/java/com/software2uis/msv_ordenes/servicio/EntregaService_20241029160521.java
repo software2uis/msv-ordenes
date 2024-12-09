@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.software2uis.msv_ordenes.modelo.Entrega;
 import com.software2uis.msv_ordenes.modelo.Pedido;
-import com.software2uis.msv_ordenes.repositorio.EntregaRepositorio;
 
 @Service
 public class EntregaService {

@@ -1,67 +1,32 @@
 package com.software2uis.msv_ordenes.modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Table(name = "metodos_pago")
+@Data
 public class MetodoPago {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String tipo; // Tipos: "Tarjeta de crédito", "Tarjeta de débito"
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private TipoMetodoPago tipo; // TARJETA_CREDITO, TARJETA_DEBITO, etc.
 
-    @Column(nullable = false, unique = true)
-    private String numeroTarjeta;
-
-    @Column(nullable = false)
-    private String fechaExpiracion;
-
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String nombreTitular;
 
-    // Getters y Setters
-    public Long getId() {
-        return id;
-    }
+    @Column(nullable = false, unique = true, length = 20)
+    private String numeroTarjeta;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(nullable = false, length = 10)
+    private String fechaExpiracion; // Formato: MM/AA o MM/AAAA
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getNumeroTarjeta() {
-        return numeroTarjeta;
-    }
-
-    public void setNumeroTarjeta(String numeroTarjeta) {
-        this.numeroTarjeta = numeroTarjeta;
-    }
-
-    public String getFechaExpiracion() {
-        return fechaExpiracion;
-    }
-
-    public void setFechaExpiracion(String fechaExpiracion) {
-        this.fechaExpiracion = fechaExpiracion;
-    }
-
-    public String getNombreTitular() {
-        return nombreTitular;
-    }
-
-    public void setNombreTitular(String nombreTitular) {
-        this.nombreTitular = nombreTitular;
-    }
+    // Relación con el cliente
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "cliente_id", nullable = false)
+    private Cliente cliente;
 }

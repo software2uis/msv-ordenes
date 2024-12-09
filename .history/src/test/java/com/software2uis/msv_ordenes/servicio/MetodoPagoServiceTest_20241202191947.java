@@ -16,7 +16,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
 
-import com.software2uis.msv_ordenes.modelo.MetodoPago;
 import com.software2uis.msv_ordenes.repositorio.MetodoPagoRepositorio;
 
 public class MetodoPagoServiceTest {

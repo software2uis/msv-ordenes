@@ -7,7 +7,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.software2uis.msv_ordenes.modelo.Entrega;
 import com.software2uis.msv_ordenes.modelo.Pedido;
 
 public class NotificacionServiceTest {

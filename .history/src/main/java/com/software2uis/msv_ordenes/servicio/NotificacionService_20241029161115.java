@@ -2,8 +2,6 @@ package com.software2uis.msv_ordenes.servicio;
 
 import org.springframework.stereotype.Service;
 
-import com.software2uis.msv_ordenes.modelo.Entrega;
-
 @Service
 public class NotificacionService {
 

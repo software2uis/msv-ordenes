@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.software2uis</groupId>
-	<artifactId>msv-ordenes</artifactId>
+	<artifactId>msv-orden</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Ordenes microservicio</name>
 	<description>Microservicio de Órdenes para el e-commerce</description>

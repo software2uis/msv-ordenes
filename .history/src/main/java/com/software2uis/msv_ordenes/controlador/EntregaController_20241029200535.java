@@ -10,11 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.software2uis.msv_ordenes.modelo.Entrega;
 import com.software2uis.msv_ordenes.modelo.Pedido;
-import com.software2uis.msv_ordenes.repositorio.EntregaRepositorio;
-import com.software2uis.msv_ordenes.servicio.EntregaService;
-import com.software2uis.msv_ordenes.servicio.NotificacionService;
 
 @RestController
 @RequestMapping("/api/entrega")
