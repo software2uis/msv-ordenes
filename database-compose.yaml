@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  ordenes_db:
+    image: postgres:16.5
+    container_name: ordenes_db
+    environment:
+      POSTGRES_USER: usuariodb_ordenes
+      POSTGRES_PASSWORD: ordenes1324
+      POSTGRES_DB: ordenes_db
+    volumes:
+      - ./setup_db.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - ecommerce-network
+
+
+networks:
+  ecommerce-network:
+    external: true
+

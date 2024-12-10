@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/ordenes")
+@CrossOrigin(origins = "*")
 public class OrdenController {
 
     private final OrdenRepositorio ordenRepositorio;

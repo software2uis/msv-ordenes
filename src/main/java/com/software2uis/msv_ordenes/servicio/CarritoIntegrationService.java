@@ -13,7 +13,7 @@ public class CarritoIntegrationService {
 
     private final RestTemplate restTemplate;
 
-    @Value("${carrito.service.url:http://192.168.193.90:8090}")
+    @Value("${back.carro.url}")
     private String carritoServiceUrl;
 
     public CarritoIntegrationService(RestTemplate restTemplate) {

@@ -2,6 +2,7 @@ package com.software2uis.msv_ordenes.servicio;
 
 import com.software2uis.msv_ordenes.dto.ProductDTO;
 import com.software2uis.msv_ordenes.modelo.Producto;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,12 +15,15 @@ public class ProductoService {
 
     private final RestTemplate restTemplate;
 
+    @Value("${back.catalogo.url}")
+    private String urlCatalogo;
+
     public ProductoService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
     public Producto obtenerProductoDeCatalogo(String productId) {
-        String url = "http://192.168.193.90:8081/public/api/products/" + productId;
+        String url =  urlCatalogo + "/public/api/products/" + productId;
 
         // Realiza la solicitud HTTP GET
         ResponseEntity<ProductDTO> response = restTemplate.getForEntity(url, ProductDTO.class);
