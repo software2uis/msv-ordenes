@@ -3,6 +3,5 @@ package com.software2uis.msv_ordenes.modelo;
 public enum TipoMetodoPago {
     TARJETA_CREDITO,
     TARJETA_DEBITO,
-    PAYPAL,
-    TRANSFERENCIA_BANCARIA
+    PSE
 }

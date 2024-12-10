@@ -5,12 +5,15 @@ import com.software2uis.msv_ordenes.modelo.Cliente;
 import com.software2uis.msv_ordenes.modelo.Factura;
 import com.software2uis.msv_ordenes.servicio.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/checkout")
@@ -56,6 +59,12 @@ public class CheckoutController {
         response.put("message", "Cliente registrado.");
         response.put("clienteId", guardado.getId());
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/cliente/email")
+    public ResponseEntity<Cliente> obtenerClientePorEmail(@RequestParam String email) {
+        Optional<Cliente> clienteOpt = clienteService.buscarPorEmail(email);
+        return clienteOpt.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
     @PostMapping("/shipping")
