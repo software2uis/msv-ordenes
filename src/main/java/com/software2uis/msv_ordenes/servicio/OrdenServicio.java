@@ -53,16 +53,10 @@ public class OrdenServicio {
 
     @Transactional
     public Orden crearOrden(Long clienteId, Orden ordenRequest, String metodoPagoTipo) {
-        sesionService.checkActiveSession(ordenRequest.getCliente().getEmail());
-        if (!sesionService.isActiveSession()) {
-            throw new OrdenCreationException("No hay sesión activa.", null);
-        }
-
         Cliente cliente = clienteService.buscarPorId(clienteId)
                 .orElseThrow(() -> new ClienteNoEncontradoException("Cliente no encontrado."));
-
-        if (cliente.getEmail() == null || !cliente.getEmail().equals(sesionService.getActiveUsername())) {
-            throw new OrdenCreationException("Usuario no coincide con el cliente.", null);
+        if (cliente.getEmail() == null){
+            throw new OrdenCreationException("El cliente debe tener un correo electrónico", null);
         }
 
         List<Producto> productosOrden = ordenRequest.getItems();
@@ -96,11 +90,10 @@ public class OrdenServicio {
             Factura factura = generarFactura(nuevaOrden, cliente, metodoPago);
             facturaRepositorio.save(factura);
 
-            facturaService.enviarFacturaPorCorreo(factura, cliente.getEmail());
+            //facturaService.enviarFacturaPorCorreo(factura, cliente.getEmail());
 
             return nuevaOrden;
         } catch (Exception e) {
-            revertirStock();
             throw new OrdenCreationException("Error al crear la orden.", e);
         }
     }

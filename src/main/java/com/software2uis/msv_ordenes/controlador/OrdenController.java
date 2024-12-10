@@ -3,6 +3,7 @@ package com.software2uis.msv_ordenes.controlador;
 import com.software2uis.msv_ordenes.modelo.Orden;
 import com.software2uis.msv_ordenes.repositorio.OrdenRepositorio;
 import com.software2uis.msv_ordenes.servicio.OrdenServicio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ public class OrdenController {
     private final OrdenRepositorio ordenRepositorio;
     private final OrdenServicio ordenServicio;
 
+    @Autowired
     public OrdenController(
             OrdenRepositorio ordenRepositorio,
             OrdenServicio ordenServicio) {

@@ -1,12 +1,11 @@
 package com.software2uis.msv_ordenes.controlador;
 
-import com.software2uis.msv_ordenes.dto.CheckoutRequestDTO;
+
 import com.software2uis.msv_ordenes.modelo.Cliente;
 import com.software2uis.msv_ordenes.modelo.Factura;
 import com.software2uis.msv_ordenes.servicio.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,9 +29,6 @@ public class CheckoutController {
 
     @Autowired
     private FacturaService facturaService;
-
-    @Autowired
-    private MetodoPagoService metodoPagoService;
 
     @Autowired
     private ShippingService shippingService;
