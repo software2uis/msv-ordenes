@@ -1,6 +1,7 @@
 package com.software2uis.msv_ordenes.servicio;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -16,13 +17,16 @@ public class SesionService {
     private boolean isActiveSession = false;
     private String activeUsername = null;
 
+    @Value("${back.usuarios.url}")
+    private String urlUsuarios;
+
     public SesionService(RestTemplate restTemplate, ObjectMapper objectMapper) {
         this.restTemplate = restTemplate;
         this.objectMapper = objectMapper;
     }
 
     public void checkActiveSession(String username) {
-        String url = "http://192.168.193.90:8082/api/user/login/active-session/" + username;
+        String url =  urlUsuarios + "/api/user/login/active-session/" + username;
         try {
             ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
             if (response.getStatusCode().is2xxSuccessful() && response.hasBody()) {

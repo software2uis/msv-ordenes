@@ -14,7 +14,7 @@ public class CatalogIntegrationService {
 
     private final RestTemplate restTemplate;
 
-    @Value("${catalogo.service.url:http://192.168.193.90:8081}")
+    @Value("${back.catalogo.url}")
     private String catalogoServiceUrl;
 
     public CatalogIntegrationService(RestTemplate restTemplate) {
