@@ -96,7 +96,7 @@ public class OrdenServicio {
             Factura factura = generarFactura(nuevaOrden, cliente, metodoPago);
             facturaRepositorio.save(factura);
 
-            facturaService.enviarFacturaPorCorreo(factura, cliente.getEmail());
+            //facturaService.enviarFacturaPorCorreo(factura, cliente.getEmail());
 
             return nuevaOrden;
         } catch (Exception e) {
