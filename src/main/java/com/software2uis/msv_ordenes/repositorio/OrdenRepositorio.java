@@ -1,6 +1,7 @@
 package com.software2uis.msv_ordenes.repositorio;
 
 import com.software2uis.msv_ordenes.modelo.Orden;
+import com.software2uis.msv_ordenes.modelo.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

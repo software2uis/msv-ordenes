@@ -8,8 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface FacturaRepositorio extends JpaRepository<Factura, Long> {
-
-    // Buscar factura por número de factura
     Optional<Factura> findByNumeroFactura(String numeroFactura);
-
 }

@@ -29,7 +29,6 @@ public class ProductoService {
             throw new RuntimeException("Producto no encontrado");
         }
 
-
         // Crea un objeto Producto para tu microservicio
         Producto producto = new Producto();
         producto.setId(product.getId());

@@ -1,17 +1,17 @@
 package com.software2uis.msv_ordenes.servicio;
 
+import com.software2uis.msv_ordenes.servicio.OrdenServicio;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PaymentService {
-
     public boolean verificarTarjeta(String nombreTitular, String numeroTarjeta, String fechaExpiracion) {
-        // Validaciones mínimas
-        return numeroTarjeta != null && !numeroTarjeta.isEmpty();
+        // Lógica de verificación de tarjeta
+        return true;
     }
 
-    public boolean realizarPago(OrdenService ordenService) {
-        // Aquí integrarías tu lógica de pago real con un gateway.
+    public boolean realizarPago(OrdenServicio ordenService) {
+        // Lógica para realizar el pago
         return true;
     }
 }
